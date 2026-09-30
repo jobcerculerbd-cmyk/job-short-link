@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+  <title>Job Circular BD</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 50px 20px;
+      background: #f5f7fa;
+    }
+
+    .box {
+      max-width: 500px;
+      margin: auto;
+      background: white;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="box">
+
+  <h2>📄 Job Circular BD</h2>
+
+  <p id="status">
+    Opening Job Circular...
+  </p>
+
+</div>
+
+<script>
+
+  const APP_URL =
+    "https://script.google.com/macros/s/AKfycby1J8dKdvEdjXI3ZXzgnwPpnhluBkPLWhuEnwI_Lmf2i-zFN0YDUlQRXZ4hVQ0XAPWq/exec";
+
+
+  // URL থেকে Short Code নেওয়া
+  const path =
+    window.location.pathname;
+
+  const parts =
+    path.split("/")
+      .filter(Boolean);
+
+  const shortCode =
+    parts.length > 1
+      ? parts[parts.length - 1]
+      : "";
+
+
+  if (!shortCode) {
+
+    document.getElementById("status").innerText =
+      "❌ Short link code পাওয়া যায়নি.";
+
+  } else {
+
+    const target =
+      APP_URL +
+      "?id=" +
+      encodeURIComponent(shortCode);
+
+    window.location.replace(target);
+
+  }
+
+</script>
+
+</body>
+</html>
