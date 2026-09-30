@@ -8,31 +8,93 @@
 
   <title>Job Circular BD</title>
 
-  <meta http-equiv="refresh"
-        content="0; url=https://script.google.com/macros/s/AKfycby1J8dKdvEdjXI3ZXzgnwPpnhluBkPLWhuEnwI_Lmf2i-zFN0YDUlQRXZ4hVQ0XAPWq/exec?id=JOB6767A33A">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 50px 20px;
+      background: #f5f7fa;
+    }
 
-  <script>
-    window.location.replace(
-      "https://script.google.com/macros/s/AKfycby1J8dKdvEdjXI3ZXzgnwPpnhluBkPLWhuEnwI_Lmf2i-zFN0YDUlQRXZ4hVQ0XAPWq/exec?id=JOB6767A33A"
-    );
-  </script>
-
+    .box {
+      max-width: 500px;
+      margin: auto;
+      background: white;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+    }
+  </style>
 </head>
 
 <body>
 
-  <h2>Opening Job Circular...</h2>
+<div class="box">
 
-  <p>
-    Please wait...
+  <h2>📄 Job Circular BD</h2>
+
+  <p id="status">
+    Opening Job Circular...
   </p>
 
-  <p>
-    If the page does not open automatically,
-    <a href="https://script.google.com/macros/s/AKfycby1J8dKdvEdjXI3ZXzgnwPpnhluBkPLWhuEnwI_Lmf2i-zFN0YDUlQRXZ4hVQ0XAPWq/exec?id=JOB6767A33A">
-      Click Here
-    </a>
-  </p>
+</div>
+
+<script>
+
+  // ==========================
+  // APPS SCRIPT URL
+  // ==========================
+
+  const APP_URL =
+    "https://script.google.com/macros/s/AKfycby1J8dKdvEdjXI3ZXzgnwPpnhluBkPLWhuEnwI_Lmf2i-zFN0YDUlQRXZ4hVQ0XAPWq/exec";
+
+
+  // ==========================
+  // GET SHORT CODE
+  // ==========================
+
+  const path =
+    window.location.pathname;
+
+
+  const parts =
+    path.split("/")
+      .filter(Boolean);
+
+
+  const shortCode =
+    parts.length > 1
+      ? parts[parts.length - 1]
+      : "";
+
+
+  // ==========================
+  // VALIDATE CODE
+  // ==========================
+
+  if (!shortCode) {
+
+    document.getElementById(
+      "status"
+    ).innerText =
+      "❌ Short link code পাওয়া যায়নি.";
+
+  } else {
+
+    // ==========================
+    // REDIRECT TO APPS SCRIPT
+    // ==========================
+
+    const target =
+      APP_URL +
+      "?id=" +
+      encodeURIComponent(shortCode);
+
+    window.location.replace(target);
+
+  }
+
+</script>
 
 </body>
 </html>
